@@ -1,0 +1,2 @@
+class PointOfSaleTerminal
+end
