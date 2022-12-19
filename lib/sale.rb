@@ -9,9 +9,7 @@ class Sale
   def on_barcode(barcode)
     if barcode == ''
       @display.set_price('Scanning error: empty barcode')
-    elsif barcode == '12345'
-      @display.set_price(@prices_by_barcode[barcode])
-    elsif barcode == '23456'
+    elsif @prices_by_barcode[barcode]
       @display.set_price(@prices_by_barcode[barcode])
     else
       @display.set_price("Product not found for #{barcode}")
