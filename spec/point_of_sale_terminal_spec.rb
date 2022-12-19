@@ -6,22 +6,35 @@ require 'sale'
 require 'pry'
 
 RSpec.describe PointOfSaleTerminal do
-  it 'sells an item' do
-    display = Display.new
-    sale = Sale.new(display)
+  describe 'it finds product and ' do
+    it 'sells an item' do
+      display = Display.new
+      sale = Sale.new(display)
 
-    sale.on_barcode('12345')
+      sale.on_barcode('12345')
 
-    expect(display.get_price).to eq '7.95'
+      expect(display.get_price).to eq '7.95'
+    end
+
+    it 'sells another item' do
+      display = Display.new
+      sale = Sale.new(display)
+
+      sale.on_barcode('23456')
+
+      expect(display.get_price).to eq '12.50'
+    end
   end
 
-  it 'sells another item' do
-    display = Display.new
-    sale = Sale.new(display)
+  describe 'does not find product' do
+    it 'and returns error' do
+      display = Display.new
+      sale = Sale.new(display)
 
-    sale.on_barcode('23456')
+      sale.on_barcode('99999')
 
-    expect(display.get_price).to eq '12.50'
+      expect(display.get_price).to eq 'Product not found for 99999'
+    end
   end
 end
 
@@ -32,7 +45,9 @@ end
 
 # onbarcode = return
 
-# product found
+# DONE product found
 # product not found
 # empty barcode
 # null barcode
+
+# lookup table

@@ -11,6 +11,8 @@ class Sale
       @display.set_price('7.95')
     when '23456'
       @display.set_price('12.50')
+    else
+      @display.set_price("Product not found for #{string}")
     end
   end
 end
