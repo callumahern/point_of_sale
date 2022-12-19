@@ -1,5 +1,10 @@
 class Display
-  def text
-    '7.95'
+
+  def get_price
+    @price
+  end
+
+  def set_price(string)
+    @price = string
   end
 end

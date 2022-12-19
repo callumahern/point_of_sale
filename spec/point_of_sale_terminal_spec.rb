@@ -6,17 +6,20 @@ require 'pry'
 RSpec.describe PointOfSaleTerminal do
   it 'sells an item' do
     display = Display.new
-    sale = Sale.new
+    sale = Sale.new(display)
+
     sale.on_barcode("12345")
-    expect(display.text).to eq "7.95"  
+
+    expect(display.get_price).to eq "7.95"
   end
 
-  xit 'sells another product but fails' do
+  it 'sells another item' do
     display = Display.new
-    sale = Sale.new
-    display.text = "12.50"
+    sale = Sale.new(display)
+
     sale.on_barcode("23456")
-    expect(display.text).to eq "12.50"
+
+    expect(display.get_price).to eq "12.50"
   end
 end
 
