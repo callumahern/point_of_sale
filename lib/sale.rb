@@ -1,5 +1,4 @@
 class Sale
-  attr_accessor :display
 
   def initialize(display = Display.new)
     @display = display
