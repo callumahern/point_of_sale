@@ -12,13 +12,13 @@ RSpec.describe PointOfSaleTerminal do
     it 'sells an item' do
       sale.on_barcode('12345')
 
-      expect(display.get_price).to eq '7.95'
+      expect(display.get_price).to eq '£7.95'
     end
 
     it 'sells another item' do
       sale.on_barcode('23456')
 
-      expect(display.get_price).to eq '12.50'
+      expect(display.get_price).to eq '£12.50'
     end
   end
 

@@ -10,10 +10,10 @@ class Sale
     if string == ''
       @display.set_price('Scanning error: empty barcode')
     elsif string == '12345'
-      @display.set_price('7.95')
+      @display.set_price(@prices_by_barcode['12345'])
     elsif string == '23456'
-      @display.set_price('12.50')
-    elsif string == '99999'
+      @display.set_price(@prices_by_barcode['23456'])
+    else
       @display.set_price("Product not found for #{string}")
     end
   end
