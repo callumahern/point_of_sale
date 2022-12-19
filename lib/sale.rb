@@ -6,15 +6,15 @@ class Sale
     @prices_by_barcode = prices_by_barcode
   end
 
-  def on_barcode(string)
-    if string == ''
+  def on_barcode(barcode)
+    if barcode == ''
       @display.set_price('Scanning error: empty barcode')
-    elsif string == '12345'
-      @display.set_price(@prices_by_barcode['12345'])
-    elsif string == '23456'
-      @display.set_price(@prices_by_barcode['23456'])
+    elsif barcode == '12345'
+      @display.set_price(@prices_by_barcode[barcode])
+    elsif barcode == '23456'
+      @display.set_price(@prices_by_barcode[barcode])
     else
-      @display.set_price("Product not found for #{string}")
+      @display.set_price("Product not found for #{barcode}")
     end
   end
 end
