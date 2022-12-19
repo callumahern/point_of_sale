@@ -11,8 +11,10 @@ class Sale
       @display.set_price('7.95')
     when '23456'
       @display.set_price('12.50')
-    else
+    when '99999'
       @display.set_price("Product not found for #{string}")
+    when ""
+      @display.set_price("Scanning error: empty barcode")
     end
   end
 end
