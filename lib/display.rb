@@ -1,5 +1,5 @@
 class Display
-  def terminal
-    "7.95"
+  def text
+    '7.95'
   end
 end

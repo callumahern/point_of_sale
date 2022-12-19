@@ -8,7 +8,15 @@ RSpec.describe PointOfSaleTerminal do
     display = Display.new
     sale = Sale.new
     sale.on_barcode("12345")
-    expect(display.terminal).to eq "7.95"  
+    expect(display.text).to eq "7.95"  
+  end
+
+  xit 'sells another product but fails' do
+    display = Display.new
+    sale = Sale.new
+    display.text = "12.50"
+    sale.on_barcode("23456")
+    expect(display.text).to eq "12.50"
   end
 end
 
