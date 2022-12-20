@@ -46,7 +46,8 @@ end
 
 # DONE product found
 # DONE product not found
-# empty barcode
+# DONE empty barcode
 # null barcode
 
-# lookup table
+# duplicate tests
+# DONElookup table
