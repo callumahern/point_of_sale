@@ -7,12 +7,18 @@ class Sale
   end
 
   def on_barcode(barcode)
-    return @display.set_price('Scanning error: empty barcode') if barcode == ''
+    return display_empty_barcode_message if barcode == ''
 
     if @prices_by_barcode[barcode]
       @display.set_price(@prices_by_barcode[barcode])
     else
       @display.set_price("Product not found for #{barcode}")
     end
+  end
+
+  private
+
+  def display_empty_barcode_message
+    @display.set_price('Scanning error: empty barcode')
   end
 end

@@ -6,7 +6,7 @@ require 'sale'
 require 'pry'
 
 RSpec.describe PointOfSaleTerminal do
-  let(:display) { display = Display.new }
+  let(:display) { Display.new }
   let(:sale) { Sale.new(display) }
   describe 'it finds product and ' do
     it 'sells an item' do
@@ -49,5 +49,5 @@ end
 # DONE empty barcode
 # null barcode
 
-# duplicate tests
+#  duplicate tests
 # DONElookup table
