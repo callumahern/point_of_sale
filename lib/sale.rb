@@ -10,9 +10,9 @@ class Sale
     return display_empty_barcode_message if barcode == ''
 
     if @prices_by_barcode[barcode]
-      @display.set_price(@prices_by_barcode[barcode])
+      display_price(barcode)
     else
-      @display.set_price("Product not found for #{barcode}")
+      display_product_not_found_message(barcode)
     end
   end
 
@@ -20,5 +20,13 @@ class Sale
 
   def display_empty_barcode_message
     @display.set_price('Scanning error: empty barcode')
+  end
+
+  def display_product_not_found_message(barcode)
+    @display.set_price("Product not found for #{barcode}")
+  end
+
+  def display_price(barcode)
+    @display.set_price(@prices_by_barcode[barcode])
   end
 end
