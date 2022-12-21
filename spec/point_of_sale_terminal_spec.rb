@@ -12,13 +12,13 @@ RSpec.describe PointOfSaleTerminal do
     it 'sells an item' do
       sale.on_barcode('12345')
 
-      expect(display.get_price).to eq '£7.95'
+      expect(display.price).to eq '£7.95'
     end
 
     it 'sells another item' do
       sale.on_barcode('23456')
 
-      expect(display.get_price).to eq '£12.50'
+      expect(display.price).to eq '£12.50'
     end
   end
 
@@ -26,13 +26,13 @@ RSpec.describe PointOfSaleTerminal do
     it 'and returns error' do
       sale.on_barcode('99999')
 
-      expect(display.get_price).to eq 'Product not found for 99999'
+      expect(display.price).to eq 'Product not found for 99999'
     end
 
     it 'because barcode is empty' do
       sale.on_barcode('')
 
-      expect(display.get_price).to eq 'Scanning error: empty barcode'
+      expect(display.price).to eq 'Scanning error: empty barcode'
     end
   end
 end
