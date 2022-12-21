@@ -7,18 +7,30 @@ class Sale
   end
 
   def on_barcode(barcode)
-    return display_empty_barcode_message if barcode == ''
+    return blank_barcode if barcode == ''
 
-    if has_barcode(barcode)
+    if has_barcode?(barcode)
       display_price(barcode)
     else
-      display_product_not_found_message(barcode)
+      unrecognised_barcode(barcode)
     end
   end
 
   private
 
-  def has_barcode(barcode)
+  def has_barcode?(barcode)
     @prices_by_barcode[barcode]
+  end
+
+  def display_price(barcode)
+    @display.set_price(@prices_by_barcode[barcode])
+  end
+
+  def unrecognised_barcode(barcode)
+    @display.set_price("Product not found for #{barcode}")
+  end
+
+  def blank_barcode
+    @display.set_price('Scanning error: empty barcode')
   end
 end
