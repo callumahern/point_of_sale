@@ -9,7 +9,7 @@ class Sale
   def on_barcode(barcode)
     return display_empty_barcode_message if barcode == ''
 
-    if @prices_by_barcode[barcode]
+    if has_barcode(barcode)
       display_price(barcode)
     else
       display_product_not_found_message(barcode)
@@ -28,5 +28,9 @@ class Sale
 
   def display_price(barcode)
     @display.set_price(@prices_by_barcode[barcode])
+  end
+
+  def has_barcode(barcode)
+    @prices_by_barcode[barcode]
   end
 end
