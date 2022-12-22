@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 class Sale
-  def initialize(display = Display.new, catalogue = { '12345' => '£7.95', '23456' => '£12.50' })
+  def initialize(display = Display.new, catalogue = Catalogue.new)
     @display = display
-    @prices_by_barcode = catalogue
+    @catalogue = catalogue
   end
 
   def on_barcode(barcode)
@@ -19,11 +19,11 @@ class Sale
   private
 
   def has_barcode?(barcode)
-    @prices_by_barcode[barcode]
+    @catalogue.prices_by_barcode[barcode]
   end
 
   def display_price(barcode)
-    @display.set_price(@prices_by_barcode[barcode])
+    @display.set_price(@catalogue.prices_by_barcode[barcode])
   end
 
   def unrecognised_barcode(barcode)
