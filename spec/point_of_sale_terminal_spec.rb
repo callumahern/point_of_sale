@@ -4,6 +4,7 @@ require 'point_of_sale_terminal'
 require 'display'
 require 'sale'
 require 'pry'
+require 'catalogue'
 
 RSpec.describe PointOfSaleTerminal do
   let(:display) { Display.new }
@@ -22,7 +23,7 @@ RSpec.describe PointOfSaleTerminal do
     end
   end
 
-  describe 'does not find product' do
+  describe 'it does not find product' do
     it 'and returns error' do
       sale.on_barcode('99999')
 
