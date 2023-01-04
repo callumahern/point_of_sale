@@ -12,7 +12,7 @@ class Sale
     if has_barcode?(barcode)
       @display.display_price(barcode)
     else
-      @display.unrecognised_barcode(barcode)
+      @display.unrecognised_barcode_error_message(barcode)
     end
   end
 

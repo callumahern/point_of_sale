@@ -13,7 +13,7 @@ class Display
     set_price(catalogue.prices_by_barcode[barcode])
   end
 
-  def unrecognised_barcode(barcode)
+  def unrecognised_barcode_error_message(barcode)
     set_price("Product not found for #{barcode}")
   end
 
