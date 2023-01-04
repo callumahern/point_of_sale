@@ -16,8 +16,8 @@ class Display
     set_text('Scanning error: empty barcode')
   end
 
-  def zero_items
-    set_text('No sale in progress. Try scanning a product.')
+  def display_no_sale_in_progress_message
+    set_text("No sale in progress. Try scanning a product.")
   end
 
   private

@@ -16,6 +16,10 @@ class Sale
     end
   end
 
+  def on_total
+    @display.display_no_sale_in_progress_message
+  end
+
   private
 
   def has_barcode?(barcode)
