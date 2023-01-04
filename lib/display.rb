@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-
 class Display
   attr_reader :text
 
