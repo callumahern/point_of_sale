@@ -4,10 +4,6 @@
 class Display
   attr_reader :price
 
-  def set_price(string)
-    @price = string
-  end
-
   def display_price(barcode)
     catalogue = Catalogue.new
     set_price(catalogue.prices_by_barcode[barcode])
@@ -19,5 +15,15 @@ class Display
 
   def blank_barcode
     set_price('Scanning error: empty barcode')
+  end
+
+  def zero_items
+    set_price('No sale in progress. Try scanning a product.')
+  end
+
+  private
+
+  def set_price(string)
+    @price = string
   end
 end
