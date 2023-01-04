@@ -7,12 +7,12 @@ class Sale
   end
 
   def on_barcode(barcode)
-    return blank_barcode if barcode == ''
+    return @display.blank_barcode if barcode == ''
 
     if has_barcode?(barcode)
-      display_price(barcode)
+      @display.display_price(barcode)
     else
-      unrecognised_barcode(barcode)
+      @display.unrecognised_barcode(barcode)
     end
   end
 
@@ -20,17 +20,5 @@ class Sale
 
   def has_barcode?(barcode)
     @catalogue.prices_by_barcode[barcode]
-  end
-
-  def display_price(barcode)
-    @display.set_price(@catalogue.prices_by_barcode[barcode])
-  end
-
-  def unrecognised_barcode(barcode)
-    @display.set_price("Product not found for #{barcode}")
-  end
-
-  def blank_barcode
-    @display.set_price('Scanning error: empty barcode')
   end
 end
