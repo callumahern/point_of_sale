@@ -17,7 +17,7 @@ class Display
   end
 
   def display_no_sale_in_progress_message
-    set_text("No sale in progress. Try scanning a product.")
+    set_text('No sale in progress. Try scanning a product.')
   end
 
   private
