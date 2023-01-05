@@ -10,13 +10,13 @@ RSpec.describe PointOfSaleTerminal do
   let(:display) { Display.new }
   let(:sale) { Sale.new(display) }
   describe 'it finds product and ' do
-    it 'sells an item' do
+    it 'scans an item' do
       sale.on_barcode('12345')
 
       expect(display.text).to eq '£7.95'
     end
 
-    it 'sells another item' do
+    it 'scans another item' do
       sale.on_barcode('23456')
 
       expect(display.text).to eq '£12.50'
