@@ -11,7 +11,7 @@ RSpec.describe PointOfSaleTerminal do
   let(:sale) { Sale.new(display) }
 
   describe 'when given zero items' do
-    it 'returns error' do
+    it 'returns a scanning error' do
       sale.on_total
       expect(display.text).to eq 'No sale in progress. Try scanning a product.'
     end
@@ -20,7 +20,7 @@ RSpec.describe PointOfSaleTerminal do
   describe 'when given one item' do
     let(:catalogue) { Catalogue.new }
 
-    it 'does something' do
+    it 'returns total amount of order' do
       catalogue.find_price(1)
       sale.on_total
       expect(display.text).to eq 'Total: £7.95'
