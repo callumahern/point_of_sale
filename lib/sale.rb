@@ -10,7 +10,8 @@ class Sale
     return @display.blank_barcode if barcode == ''
 
     if has_barcode?(barcode)
-      @display.display_price(barcode)
+      price = @catalogue.prices_by_barcode[barcode]
+      @display.display_price(price)
     else
       @display.unrecognised_barcode_error_message(barcode)
     end

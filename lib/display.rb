@@ -3,9 +3,8 @@
 class Display
   attr_reader :text
 
-  def display_price(barcode)
-    catalogue = Catalogue.new # would like to get rid of this
-    set_text(catalogue.prices_by_barcode[barcode])
+  def display_price(price)
+    set_text(price)
   end
 
   def unrecognised_barcode_error_message(barcode)

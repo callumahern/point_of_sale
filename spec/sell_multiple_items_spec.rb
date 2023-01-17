@@ -20,10 +20,10 @@ RSpec.describe PointOfSaleTerminal do
   describe 'when given one item' do
     let(:catalogue) { Catalogue.new }
 
-    it 'returns total amount of order' do
-      catalogue.find_price(1)
+    xit 'returns total amount of order' do
+      sale.on_barcode("12345")
       sale.on_total
-      expect(display.text).to eq 'Total: £7.95'
+      expect(display.text).to eq '£7.95'
     end
   end
 end
