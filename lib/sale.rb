@@ -17,11 +17,7 @@ class Sale
   end
 
   def on_total
-    if @catalogue.find_price(nil).nil?
-      @display.display_no_sale_in_progress_message
-    else
-      'Total £7.95'
-    end
+    @display.display_no_sale_in_progress_message
   end
 
   private

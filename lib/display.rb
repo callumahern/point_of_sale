@@ -4,7 +4,7 @@ class Display
   attr_reader :text
 
   def display_price(barcode)
-    catalogue = Catalogue.new
+    catalogue = Catalogue.new # would like to get rid of this
     set_text(catalogue.prices_by_barcode[barcode])
   end
 
