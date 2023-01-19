@@ -19,6 +19,10 @@ class Display
     set_text('No sale in progress. Try scanning a product.')
   end
 
+  def total_amount(price)
+    set_text("Total: #{price}")
+  end
+
   private
 
   def set_text(string)
