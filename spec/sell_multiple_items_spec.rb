@@ -25,5 +25,11 @@ RSpec.describe PointOfSaleTerminal do
       sale.on_total
       expect(display.text).to eq 'Total: £7.95'
     end
+
+    it 'and is unable to find it' do
+      sale.on_barcode('99999')
+      sale.on_total
+      expect(display.text).to eq 'No sale in progress. Try scanning a product.'
+    end
   end
 end
