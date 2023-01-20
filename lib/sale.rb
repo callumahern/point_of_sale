@@ -27,6 +27,8 @@ class Sale
     end
   end
 
+  def format_currency_amount; end
+
   private
 
   def has_barcode?(barcode)
